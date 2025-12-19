@@ -1,0 +1,482 @@
+/* KATIFA MAN - The Sovereign of Sleep | Luxury Theme */
+
+:root {
+    /* Palette */
+    --primary-color: #FFDA03;
+    /* Sunflower Yellow */
+    --secondary-color: #D4AF37;
+    /* Metallic Gold */
+    --bg-color: #FFFFFF;
+    --bg-light: #FAFAFA;
+    /* Very subtle off-white */
+    --footer-bg: #101010;
+    /* Midnight Black */
+    --text-color: #1A1A1A;
+    --text-light: #555555;
+    --text-gold: #F4C430;
+
+    /* Config */
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Outfit', sans-serif;
+    --shadow-float: 0 20px 40px rgba(0, 0, 0, 0.1);
+    /* Soft floating shadow */
+    --radius: 4px;
+    /* Sharper, more elegant corners */
+    --transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    /* Luxurious smooth ease */
+}
+
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    background-image: radial-gradient(circle at 50% 50%, #FFDA0305 0%, transparent 60%);
+    /* Subtle watermark feel */
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+.brand-font {
+    font-family: var(--font-serif);
+    font-style: italic;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+/* Utilities */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 100px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 60px;
+    color: var(--text-color);
+}
+
+.section-title span {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+}
+
+/* Buttons */
+.btn-primary {
+    display: inline-block;
+    padding: 15px 40px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    font-family: var(--font-sans);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(212, 175, 55, 0.5);
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 12px 30px;
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+
+/* Navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 5%;
+    position: absolute;
+    /* Transparent overlay */
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    /* Removed font styles */
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 60px;
+    /* Adjust height as needed */
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links li a {
+    font-weight: 500;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    position: relative;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--secondary-color);
+    transition: var(--transition);
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    flex: 1;
+    z-index: 2;
+    padding-right: 50px;
+}
+
+.hero-motto {
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    display: block;
+    font-weight: 600;
+}
+
+.hero-content h1 {
+    font-size: 4.5rem;
+    line-height: 1.1;
+    margin-bottom: 30px;
+    color: var(--text-color);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-bottom: 40px;
+    max-width: 500px;
+}
+
+.hero-image-container {
+    flex: 1.2;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-mattress-img {
+    width: 100%;
+    max-width: 800px;
+    animation: float 6s ease-in-out infinite;
+    filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.15));
+}
+
+/* Product Section */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.product-card {
+    background: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    transition: var(--transition);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.product-card:hover {
+    box-shadow: var(--shadow-float);
+    transform: translateY(-15px);
+    border-color: var(--secondary-color);
+}
+
+.product-image-placeholder {
+    width: 100%;
+    height: 250px;
+    background-color: #f9f9f9;
+    /* Placeholder for uploading own photos */
+    margin-bottom: 25px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.02);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ddd;
+    font-family: var(--font-serif);
+    font-size: 2rem;
+}
+
+.product-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.product-card .price {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Tech Section */
+.tech-content {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.tech-text {
+    flex: 1;
+}
+
+.tech-visual {
+    flex: 1;
+    height: 400px;
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    border-radius: 50% 50% 0 0;
+    /* Abstract shape */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tech-text h2 {
+    font-size: 3rem;
+    margin-bottom: 25px;
+}
+
+.tech-text p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+
+/* Features (Why Us) */
+.features-grid .feature-item {
+    background: transparent;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: none;
+}
+
+.features-grid .feature-item:hover {
+    background: #fff;
+    box-shadow: var(--shadow-float);
+    border-color: transparent;
+}
+
+.feature-item .icon {
+    color: var(--secondary-color);
+}
+
+/* Footer */
+footer {
+    background-color: var(--footer-bg);
+    color: #fff;
+    padding-top: 80px;
+    border-top: 5px solid var(--secondary-color);
+}
+
+.footer-col h4 {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+}
+
+.footer-col ul li a {
+    color: #888;
+}
+
+.footer-col ul li a:hover {
+    color: var(--primary-color);
+}
+
+.footer-col p {
+    color: #aaa;
+    margin-bottom: 15px;
+}
+
+.footer-bottom {
+    border-top: 1px solid #222;
+    color: #555;
+}
+
+/* Animations */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Drifting Scroll Animation Classes */
+.drift-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.drift-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-top: 120px;
+    }
+
+    .hero-content {
+        padding-right: 0;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .navbar .nav-links {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        flex-direction: column;
+        padding: 30px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger span {
+        background-color: #000;
+        display: block;
+        width: 30px;
+        height: 3px;
+        margin: 6px 0;
+    }
+
+    .tech-content {
+        flex-direction: column;
+    }
+
+    .tech-visual {
+        width: 100%;
+        border-radius: 20px;
+        min-height: 250px;
+        /* Ensure visibility on mobile */
+    }
+}
+
+/* Floating Action Button (FAB) */
+.fab-call {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at 30% 30%, #FFDA03, #D4AF37);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.6);
+    z-index: 2000;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 2px solid #fff;
+    cursor: pointer;
+}
+
+.fab-call:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.8);
+}
+
+.fab-call .phone-icon {
+    font-size: 30px;
+    filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.1));
+}
